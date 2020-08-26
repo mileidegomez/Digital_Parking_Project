@@ -1,0 +1,63 @@
+﻿<!-- @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> -->
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model DigitalParkingWebApp.Models.MaterialUsage
+
+    <div class="text-center">
+        <h1 class="display-4">Bem-Vindo/a ao Digital Parking</h1>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Estacionamento</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Lugar A-1</th>
+                            <th>Lugar A-2</th>
+                            <th>Lugar A-3</th>
+                            <th>Lugar A-4</th>
+                            <th>Carros não Estacionados</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Value != null)
+                        {
+                            foreach (var item in Model.Value)
+                            {
+
+                                <tr>
+                                    <td>@item.A_1</td>
+                                    <td>@item.A_2</td>
+                                    <td>@item.A_3</td>
+                                    <td>@item.A_4</td>
+                                    <td>@item.FORA</td>
+                                    <td>@item.Timestamp</td>
+
+                                </tr>
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>No Data</td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        
